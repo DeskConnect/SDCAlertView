@@ -63,11 +63,11 @@ static CGFloat			const SDCAlertViewSpringAnimationVelocity = 0;
 #pragma mark - Status Bar
 
 - (BOOL)prefersStatusBarHidden {
-	return [[UIApplication sharedApplication] isStatusBarHidden];
+    return [[UIApplication performSelector:@selector(sharedApplication)] isStatusBarHidden];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
-	return [[UIApplication sharedApplication] statusBarStyle];
+	return [[UIApplication performSelector:@selector(sharedApplication)] statusBarStyle];
 }
 
 #pragma mark - Rotation
@@ -113,7 +113,7 @@ static CGFloat			const SDCAlertViewSpringAnimationVelocity = 0;
 
 - (void)keyboardWillShow:(NSNotification *)notification {
 	CGRect keyboardFrame = [[notification userInfo][UIKeyboardFrameEndUserInfoKey] CGRectValue];
-	UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
+	UIInterfaceOrientation orientation = [[UIApplication performSelector:@selector(sharedApplication)] statusBarOrientation];
 	
 	CGFloat keyboardHeight = CGRectGetHeight(keyboardFrame);
 	

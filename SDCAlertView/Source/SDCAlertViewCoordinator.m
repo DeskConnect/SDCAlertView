@@ -7,6 +7,7 @@
 //
 
 #import "SDCAlertViewCoordinator.h"
+#import <ContentKit/WFApplicationContext.h>
 
 #import "SDCAlertView.h"
 #import "SDCAlertViewController.h"
@@ -48,7 +49,7 @@
 	self = [super init];
 	
 	if (self) {
-		_userWindow = [[UIApplication sharedApplication] keyWindow];
+		_userWindow = [[WFApplicationContext sharedContext] keyWindow];
 		_transitionQueue = [NSMutableArray array];
 		[self validateUserWindow];
 	}

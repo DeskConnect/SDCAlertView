@@ -7,11 +7,12 @@
 //
 
 #import "UIViewController+Current.h"
+#import <ContentKit/WFApplicationContext.h>
 
 @implementation UIViewController (Current)
 
 + (UIViewController *)sdc_currentViewController {
-	UIViewController *rootViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+	UIViewController *rootViewController = [[[WFApplicationContext sharedContext] keyWindow] rootViewController];
 	return [self sdc_topViewControllerForViewController:rootViewController];
 }
 
