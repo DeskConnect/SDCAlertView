@@ -23,37 +23,37 @@ final class DemoViewController: UITableViewController {
     private func presentSDCAlertController() {
         let title = self.titleTextField.content
         let message = self.messageTextField.content
-        let style = AlertControllerStyle(rawValue: self.styleControl.selectedSegmentIndex)!
-        let alert = AlertController(title: title, message: message, preferredStyle: style)
+        let style = SDCAlertControllerStyle(rawValue: self.styleControl.selectedSegmentIndex)!
+        let alert = SDCAlertController(title: title, message: message, preferredStyle: style)
 
         let textFields = Int(self.textFieldCountTextField.content ?? "0")!
         for _ in 0..<textFields {
-            alert.addTextFieldWithConfigurationHandler()
+            alert.addTextFieldWithConfigurationHandler(nil)
         }
 
         let buttons = Int(self.buttonCountTextField.content ?? "0")!
         for i in 0..<buttons {
             if i == 0 {
-                alert.addAction(AlertAction(title: "Cancel", style: .Preferred))
+                alert.addAction(SDCAlertAction(title: "Cancel", style: .Preferred))
             } else if i == 1 {
-                alert.addAction(AlertAction(title: "OK", style: .Default))
+                alert.addAction(SDCAlertAction(title: "OK", style: .Default))
             } else if i == 2 {
-                alert.addAction(AlertAction(title: "Delete", style: .Destructive))
+                alert.addAction(SDCAlertAction(title: "Delete", style: .Destructive))
             } else {
-                alert.addAction(AlertAction(title: "Button \(i)", style: .Default))
+                alert.addAction(SDCAlertAction(title: "Button \(i)", style: .Default))
             }
         }
 
-        alert.actionLayout = ActionLayout(rawValue: self.buttonLayoutControl.selectedSegmentIndex)!
+        alert.actionLayout = SDCActionLayout(rawValue: self.buttonLayoutControl.selectedSegmentIndex)!
 
         if #available(iOS 9, *) {
             addContentToAlert(alert)
         }
-        alert.present()
+        alert.presentAnimated(true, completion: nil)
     }
 
     @available(iOS 9, *)
-    private func addContentToAlert(alert: AlertController) {
+    private func addContentToAlert(alert: SDCAlertController) {
         switch self.contentControl.selectedSegmentIndex {
             case 1:
                 let contentView = alert.contentView

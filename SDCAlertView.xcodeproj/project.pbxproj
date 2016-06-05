@@ -7,59 +7,88 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D23B53751BF473BC00AB5BBE /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B53741BF473BC00AB5BBE /* AlertView.swift */; };
-		D23B53771BF473CC00AB5BBE /* ActionSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D23B53761BF473CC00AB5BBE /* ActionSheetView.swift */; };
+		022B43221CFBDDBB00B477A7 /* SDCAlertAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 022B43201CFBDDBB00B477A7 /* SDCAlertAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		022B43231CFBDDBB00B477A7 /* SDCAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 022B43211CFBDDBB00B477A7 /* SDCAlertAction.m */; };
+		02AD69FF1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */; };
+		02AD6A001CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD69FE1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m */; };
+		02AD6A031CFBEA570087BCB4 /* SDCAlertVisualStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A011CFBEA570087BCB4 /* SDCAlertVisualStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02AD6A041CFBEA570087BCB4 /* SDCAlertVisualStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A021CFBEA570087BCB4 /* SDCAlertVisualStyle.m */; };
+		02AD6A081CFBFD2C0087BCB4 /* SDCActionCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A061CFBFD2C0087BCB4 /* SDCActionCell.h */; };
+		02AD6A091CFBFD2C0087BCB4 /* SDCActionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A071CFBFD2C0087BCB4 /* SDCActionCell.m */; };
+		02AD6A141CFC01910087BCB4 /* SDCActionsCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A121CFC01910087BCB4 /* SDCActionsCollectionView.h */; };
+		02AD6A151CFC01910087BCB4 /* SDCActionsCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A131CFC01910087BCB4 /* SDCActionsCollectionView.m */; };
+		02AD6A181CFC07E50087BCB4 /* SDCTextFieldCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A161CFC07E50087BCB4 /* SDCTextFieldCell.h */; };
+		02AD6A191CFC07E50087BCB4 /* SDCTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A171CFC07E50087BCB4 /* SDCTextFieldCell.m */; };
+		02AD6A1C1CFC0A080087BCB4 /* SDCTextFieldsViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A1A1CFC0A080087BCB4 /* SDCTextFieldsViewController.h */; };
+		02AD6A1D1CFC0A080087BCB4 /* SDCTextFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A1B1CFC0A080087BCB4 /* SDCTextFieldsViewController.m */; };
+		02AD6A201CFC25A90087BCB4 /* SDCAlertLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A1E1CFC25A90087BCB4 /* SDCAlertLabel.h */; };
+		02AD6A211CFC25A90087BCB4 /* SDCAlertLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A1F1CFC25A90087BCB4 /* SDCAlertLabel.m */; };
+		02AD6A281CFC26E40087BCB4 /* SDCAlertControllerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A261CFC26E40087BCB4 /* SDCAlertControllerView.h */; };
+		02AD6A291CFC26E40087BCB4 /* SDCAlertControllerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A271CFC26E40087BCB4 /* SDCAlertControllerView.m */; };
+		02AD6A2C1CFC28920087BCB4 /* SDCAlertBehaviors.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A2A1CFC28920087BCB4 /* SDCAlertBehaviors.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02AD6A2D1CFC28920087BCB4 /* SDCAlertBehaviors.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A2B1CFC28920087BCB4 /* SDCAlertBehaviors.m */; };
+		02AD6A311CFC2DD00087BCB4 /* SDCAlertViewClass.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A2F1CFC2DD00087BCB4 /* SDCAlertViewClass.h */; };
+		02AD6A331CFC2EF80087BCB4 /* SDCAlertViewClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A301CFC2DD00087BCB4 /* SDCAlertViewClass.m */; };
+		02AD6A381CFD60230087BCB4 /* SDCActionSheetView.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A361CFD60230087BCB4 /* SDCActionSheetView.h */; };
+		02AD6A391CFD60230087BCB4 /* SDCActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A371CFD60230087BCB4 /* SDCActionSheetView.m */; };
+		02AD6A3C1CFD642C0087BCB4 /* SDCAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A3A1CFD642C0087BCB4 /* SDCAnimationController.h */; };
+		02AD6A401CFD65F80087BCB4 /* SDCAlertPresentationController.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A3E1CFD65F80087BCB4 /* SDCAlertPresentationController.h */; };
+		02AD6A411CFD65F80087BCB4 /* SDCAlertPresentationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A3F1CFD65F80087BCB4 /* SDCAlertPresentationController.m */; };
+		02AD6A421CFD665E0087BCB4 /* SDCAnimationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A3B1CFD642C0087BCB4 /* SDCAnimationController.m */; };
+		02AD6A451CFFEB110087BCB4 /* UIViewController+SDCExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A431CFFEB110087BCB4 /* UIViewController+SDCExtension.h */; };
+		02AD6A461CFFEB110087BCB4 /* UIViewController+SDCExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A441CFFEB110087BCB4 /* UIViewController+SDCExtension.m */; };
+		02AD6A491CFFED7D0087BCB4 /* SDCAlertController.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A471CFFED7D0087BCB4 /* SDCAlertController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		02AD6A4A1CFFED7D0087BCB4 /* SDCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A481CFFED7D0087BCB4 /* SDCAlertController.m */; };
 		D2515EC41BC1A7D500ED606F /* SDCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = D2515EC31BC1A7D500ED606F /* SDCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2515ECB1BC1A83800ED606F /* UIView+SDCAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C30AA71BC19F9300984652 /* UIView+SDCAutoLayout.m */; };
-		D2515ECD1BC1A84D00ED606F /* ActionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A701BC120C900984652 /* ActionCell.swift */; };
-		D2515ECE1BC1A84D00ED606F /* ActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A711BC120C900984652 /* ActionCell.xib */; };
-		D2515ECF1BC1A84D00ED606F /* ActionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A721BC120C900984652 /* ActionsCollectionView.swift */; };
-		D2515ED01BC1A84D00ED606F /* ActionsCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A731BC120C900984652 /* ActionsCollectionViewFlowLayout.swift */; };
-		D2515ED11BC1A84D00ED606F /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A741BC120C900984652 /* AlertAction.swift */; };
-		D2515ED21BC1A85200ED606F /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A791BC120C900984652 /* AnimationController.swift */; };
-		D2515ED31BC1A85200ED606F /* PresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A7A1BC120C900984652 /* PresentationController.swift */; };
-		D2515ED41BC1A85200ED606F /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A7B1BC120C900984652 /* Transition.swift */; };
-		D2515ED51BC1A85200ED606F /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A7C1BC120C900984652 /* UIViewController+Extension.swift */; };
-		D2515ED61BC1A85800ED606F /* TextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A7E1BC120C900984652 /* TextFieldCell.swift */; };
-		D2515ED71BC1A85800ED606F /* TextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A7F1BC120C900984652 /* TextFieldCell.xib */; };
-		D2515ED81BC1A85800ED606F /* TextFieldsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A801BC120C900984652 /* TextFieldsViewController.swift */; };
-		D2515EDA1BC1A85800ED606F /* AlertControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A761BC120C900984652 /* AlertControllerView.swift */; };
-		D2515EDB1BC1A85800ED606F /* AlertLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A771BC120C900984652 /* AlertLabel.swift */; };
-		D2515EDC1BC1A85800ED606F /* AlertVisualStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A811BC120C900984652 /* AlertVisualStyle.swift */; };
-		D2515EDE1BC1A94A00ED606F /* UIView+SDCAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C30AA61BC19F9300984652 /* UIView+SDCAutoLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D253B1C81C2AC78D00C37E0F /* AlertBehaviors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D253B1C71C2AC78D00C37E0F /* AlertBehaviors.swift */; };
-		D2A48B441C2E09CE009DD715 /* AlertController+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2A48B431C2E09CE009DD715 /* AlertController+Convenience.swift */; };
-		D2DE585A1C08261E0041DFDE /* ActionSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DE58591C08261E0041DFDE /* ActionSheetView.xib */; };
-		D2DE585B1C082F460041DFDE /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C30A751BC120C900984652 /* AlertController.swift */; };
+		D2515ECE1BC1A84D00ED606F /* SDCActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A711BC120C900984652 /* SDCActionCell.xib */; };
+		D2515ED71BC1A85800ED606F /* SDCTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A7F1BC120C900984652 /* SDCTextFieldCell.xib */; };
+		D2515EDE1BC1A94A00ED606F /* UIView+SDCAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C30AA61BC19F9300984652 /* UIView+SDCAutoLayout.h */; };
+		D2DE585A1C08261E0041DFDE /* SDCActionSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D23B53741BF473BC00AB5BBE /* AlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
-		D23B53761BF473CC00AB5BBE /* ActionSheetView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionSheetView.swift; sourceTree = "<group>"; };
+		022B43201CFBDDBB00B477A7 /* SDCAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertAction.h; sourceTree = "<group>"; };
+		022B43211CFBDDBB00B477A7 /* SDCAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertAction.m; sourceTree = "<group>"; };
+		02A875FC1D03ADA300A7F6A0 /* SDCAlertActionPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDCAlertActionPrivate.h; sourceTree = "<group>"; };
+		02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCActionsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		02AD69FE1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCActionsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		02AD6A011CFBEA570087BCB4 /* SDCAlertVisualStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertVisualStyle.h; sourceTree = "<group>"; };
+		02AD6A021CFBEA570087BCB4 /* SDCAlertVisualStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertVisualStyle.m; sourceTree = "<group>"; };
+		02AD6A061CFBFD2C0087BCB4 /* SDCActionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCActionCell.h; sourceTree = "<group>"; };
+		02AD6A071CFBFD2C0087BCB4 /* SDCActionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCActionCell.m; sourceTree = "<group>"; };
+		02AD6A121CFC01910087BCB4 /* SDCActionsCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCActionsCollectionView.h; sourceTree = "<group>"; };
+		02AD6A131CFC01910087BCB4 /* SDCActionsCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCActionsCollectionView.m; sourceTree = "<group>"; };
+		02AD6A161CFC07E50087BCB4 /* SDCTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCTextFieldCell.h; sourceTree = "<group>"; };
+		02AD6A171CFC07E50087BCB4 /* SDCTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCTextFieldCell.m; sourceTree = "<group>"; };
+		02AD6A1A1CFC0A080087BCB4 /* SDCTextFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCTextFieldsViewController.h; sourceTree = "<group>"; };
+		02AD6A1B1CFC0A080087BCB4 /* SDCTextFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCTextFieldsViewController.m; sourceTree = "<group>"; };
+		02AD6A1E1CFC25A90087BCB4 /* SDCAlertLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertLabel.h; sourceTree = "<group>"; };
+		02AD6A1F1CFC25A90087BCB4 /* SDCAlertLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertLabel.m; sourceTree = "<group>"; };
+		02AD6A261CFC26E40087BCB4 /* SDCAlertControllerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertControllerView.h; sourceTree = "<group>"; };
+		02AD6A271CFC26E40087BCB4 /* SDCAlertControllerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertControllerView.m; sourceTree = "<group>"; };
+		02AD6A2A1CFC28920087BCB4 /* SDCAlertBehaviors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertBehaviors.h; sourceTree = "<group>"; };
+		02AD6A2B1CFC28920087BCB4 /* SDCAlertBehaviors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertBehaviors.m; sourceTree = "<group>"; };
+		02AD6A2F1CFC2DD00087BCB4 /* SDCAlertViewClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertViewClass.h; sourceTree = "<group>"; };
+		02AD6A301CFC2DD00087BCB4 /* SDCAlertViewClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertViewClass.m; sourceTree = "<group>"; };
+		02AD6A361CFD60230087BCB4 /* SDCActionSheetView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCActionSheetView.h; sourceTree = "<group>"; };
+		02AD6A371CFD60230087BCB4 /* SDCActionSheetView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCActionSheetView.m; sourceTree = "<group>"; };
+		02AD6A3A1CFD642C0087BCB4 /* SDCAnimationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAnimationController.h; sourceTree = "<group>"; };
+		02AD6A3B1CFD642C0087BCB4 /* SDCAnimationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAnimationController.m; sourceTree = "<group>"; };
+		02AD6A3E1CFD65F80087BCB4 /* SDCAlertPresentationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertPresentationController.h; sourceTree = "<group>"; };
+		02AD6A3F1CFD65F80087BCB4 /* SDCAlertPresentationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertPresentationController.m; sourceTree = "<group>"; };
+		02AD6A431CFFEB110087BCB4 /* UIViewController+SDCExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+SDCExtension.h"; sourceTree = "<group>"; };
+		02AD6A441CFFEB110087BCB4 /* UIViewController+SDCExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+SDCExtension.m"; sourceTree = "<group>"; };
+		02AD6A471CFFED7D0087BCB4 /* SDCAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertController.h; sourceTree = "<group>"; };
+		02AD6A481CFFED7D0087BCB4 /* SDCAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertController.m; sourceTree = "<group>"; };
 		D2515EC11BC1A7D500ED606F /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2515EC31BC1A7D500ED606F /* SDCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDCAlertView.h; sourceTree = "<group>"; };
 		D2515EC51BC1A7D500ED606F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D253B1C71C2AC78D00C37E0F /* AlertBehaviors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertBehaviors.swift; sourceTree = "<group>"; };
-		D2A48B431C2E09CE009DD715 /* AlertController+Convenience.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AlertController+Convenience.swift"; sourceTree = "<group>"; };
-		D2C30A701BC120C900984652 /* ActionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionCell.swift; sourceTree = "<group>"; };
-		D2C30A711BC120C900984652 /* ActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionCell.xib; sourceTree = "<group>"; };
-		D2C30A721BC120C900984652 /* ActionsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsCollectionView.swift; sourceTree = "<group>"; };
-		D2C30A731BC120C900984652 /* ActionsCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionsCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		D2C30A741BC120C900984652 /* AlertAction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertAction.swift; sourceTree = "<group>"; };
-		D2C30A751BC120C900984652 /* AlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
-		D2C30A761BC120C900984652 /* AlertControllerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertControllerView.swift; sourceTree = "<group>"; };
-		D2C30A771BC120C900984652 /* AlertLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertLabel.swift; sourceTree = "<group>"; };
-		D2C30A791BC120C900984652 /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
-		D2C30A7A1BC120C900984652 /* PresentationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentationController.swift; sourceTree = "<group>"; };
-		D2C30A7B1BC120C900984652 /* Transition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
-		D2C30A7C1BC120C900984652 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
-		D2C30A7E1BC120C900984652 /* TextFieldCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldCell.swift; sourceTree = "<group>"; };
-		D2C30A7F1BC120C900984652 /* TextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TextFieldCell.xib; sourceTree = "<group>"; };
-		D2C30A801BC120C900984652 /* TextFieldsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldsViewController.swift; sourceTree = "<group>"; };
-		D2C30A811BC120C900984652 /* AlertVisualStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertVisualStyle.swift; sourceTree = "<group>"; };
+		D2C30A711BC120C900984652 /* SDCActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCActionCell.xib; sourceTree = "<group>"; };
+		D2C30A7F1BC120C900984652 /* SDCTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCTextFieldCell.xib; sourceTree = "<group>"; };
 		D2C30AA61BC19F9300984652 /* UIView+SDCAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDCAutoLayout.h"; sourceTree = "<group>"; };
 		D2C30AA71BC19F9300984652 /* UIView+SDCAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDCAutoLayout.m"; sourceTree = "<group>"; };
-		D2DE58591C08261E0041DFDE /* ActionSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActionSheetView.xib; sourceTree = "<group>"; };
+		D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCActionSheetView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,11 +105,15 @@
 		D23B53781BF473DA00AB5BBE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D23B53761BF473CC00AB5BBE /* ActionSheetView.swift */,
-				D2DE58591C08261E0041DFDE /* ActionSheetView.xib */,
-				D2C30A761BC120C900984652 /* AlertControllerView.swift */,
-				D2C30A771BC120C900984652 /* AlertLabel.swift */,
-				D23B53741BF473BC00AB5BBE /* AlertView.swift */,
+				D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */,
+				02AD6A361CFD60230087BCB4 /* SDCActionSheetView.h */,
+				02AD6A371CFD60230087BCB4 /* SDCActionSheetView.m */,
+				02AD6A261CFC26E40087BCB4 /* SDCAlertControllerView.h */,
+				02AD6A271CFC26E40087BCB4 /* SDCAlertControllerView.m */,
+				02AD6A1E1CFC25A90087BCB4 /* SDCAlertLabel.h */,
+				02AD6A1F1CFC25A90087BCB4 /* SDCAlertLabel.m */,
+				02AD6A2F1CFC2DD00087BCB4 /* SDCAlertViewClass.h */,
+				02AD6A301CFC2DD00087BCB4 /* SDCAlertViewClass.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -116,11 +149,16 @@
 		D2C30A6F1BC120C900984652 /* Actions */ = {
 			isa = PBXGroup;
 			children = (
-				D2C30A701BC120C900984652 /* ActionCell.swift */,
-				D2C30A711BC120C900984652 /* ActionCell.xib */,
-				D2C30A721BC120C900984652 /* ActionsCollectionView.swift */,
-				D2C30A731BC120C900984652 /* ActionsCollectionViewFlowLayout.swift */,
-				D2C30A741BC120C900984652 /* AlertAction.swift */,
+				02AD6A061CFBFD2C0087BCB4 /* SDCActionCell.h */,
+				02AD6A071CFBFD2C0087BCB4 /* SDCActionCell.m */,
+				D2C30A711BC120C900984652 /* SDCActionCell.xib */,
+				02AD6A121CFC01910087BCB4 /* SDCActionsCollectionView.h */,
+				02AD6A131CFC01910087BCB4 /* SDCActionsCollectionView.m */,
+				02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */,
+				02AD69FE1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m */,
+				022B43201CFBDDBB00B477A7 /* SDCAlertAction.h */,
+				022B43211CFBDDBB00B477A7 /* SDCAlertAction.m */,
+				02A875FC1D03ADA300A7F6A0 /* SDCAlertActionPrivate.h */,
 			);
 			path = Actions;
 			sourceTree = "<group>";
@@ -128,10 +166,12 @@
 		D2C30A781BC120C900984652 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				D2C30A791BC120C900984652 /* AnimationController.swift */,
-				D2C30A7A1BC120C900984652 /* PresentationController.swift */,
-				D2C30A7B1BC120C900984652 /* Transition.swift */,
-				D2C30A7C1BC120C900984652 /* UIViewController+Extension.swift */,
+				02AD6A3A1CFD642C0087BCB4 /* SDCAnimationController.h */,
+				02AD6A3B1CFD642C0087BCB4 /* SDCAnimationController.m */,
+				02AD6A3E1CFD65F80087BCB4 /* SDCAlertPresentationController.h */,
+				02AD6A3F1CFD65F80087BCB4 /* SDCAlertPresentationController.m */,
+				02AD6A431CFFEB110087BCB4 /* UIViewController+SDCExtension.h */,
+				02AD6A441CFFEB110087BCB4 /* UIViewController+SDCExtension.m */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -139,9 +179,11 @@
 		D2C30A7D1BC120C900984652 /* Text Fields */ = {
 			isa = PBXGroup;
 			children = (
-				D2C30A7E1BC120C900984652 /* TextFieldCell.swift */,
-				D2C30A7F1BC120C900984652 /* TextFieldCell.xib */,
-				D2C30A801BC120C900984652 /* TextFieldsViewController.swift */,
+				02AD6A161CFC07E50087BCB4 /* SDCTextFieldCell.h */,
+				02AD6A171CFC07E50087BCB4 /* SDCTextFieldCell.m */,
+				D2C30A7F1BC120C900984652 /* SDCTextFieldCell.xib */,
+				02AD6A1A1CFC0A080087BCB4 /* SDCTextFieldsViewController.h */,
+				02AD6A1B1CFC0A080087BCB4 /* SDCTextFieldsViewController.m */,
 			);
 			path = "Text Fields";
 			sourceTree = "<group>";
@@ -154,10 +196,12 @@
 				D2515ECA1BC1A81100ED606F /* Supporting Files */,
 				D2C30A7D1BC120C900984652 /* Text Fields */,
 				D23B53781BF473DA00AB5BBE /* Views */,
-				D253B1C71C2AC78D00C37E0F /* AlertBehaviors.swift */,
-				D2A48B431C2E09CE009DD715 /* AlertController+Convenience.swift */,
-				D2C30A751BC120C900984652 /* AlertController.swift */,
-				D2C30A811BC120C900984652 /* AlertVisualStyle.swift */,
+				02AD6A2A1CFC28920087BCB4 /* SDCAlertBehaviors.h */,
+				02AD6A2B1CFC28920087BCB4 /* SDCAlertBehaviors.m */,
+				02AD6A471CFFED7D0087BCB4 /* SDCAlertController.h */,
+				02AD6A481CFFED7D0087BCB4 /* SDCAlertController.m */,
+				02AD6A011CFBEA570087BCB4 /* SDCAlertVisualStyle.h */,
+				02AD6A021CFBEA570087BCB4 /* SDCAlertVisualStyle.m */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -169,7 +213,23 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02AD6A401CFD65F80087BCB4 /* SDCAlertPresentationController.h in Headers */,
+				02AD6A3C1CFD642C0087BCB4 /* SDCAnimationController.h in Headers */,
+				02AD6A381CFD60230087BCB4 /* SDCActionSheetView.h in Headers */,
 				D2515EC41BC1A7D500ED606F /* SDCAlertView.h in Headers */,
+				02AD6A081CFBFD2C0087BCB4 /* SDCActionCell.h in Headers */,
+				02AD6A031CFBEA570087BCB4 /* SDCAlertVisualStyle.h in Headers */,
+				02AD6A201CFC25A90087BCB4 /* SDCAlertLabel.h in Headers */,
+				02AD6A451CFFEB110087BCB4 /* UIViewController+SDCExtension.h in Headers */,
+				02AD6A181CFC07E50087BCB4 /* SDCTextFieldCell.h in Headers */,
+				022B43221CFBDDBB00B477A7 /* SDCAlertAction.h in Headers */,
+				02AD6A1C1CFC0A080087BCB4 /* SDCTextFieldsViewController.h in Headers */,
+				02AD69FF1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h in Headers */,
+				02AD6A281CFC26E40087BCB4 /* SDCAlertControllerView.h in Headers */,
+				02AD6A141CFC01910087BCB4 /* SDCActionsCollectionView.h in Headers */,
+				02AD6A311CFC2DD00087BCB4 /* SDCAlertViewClass.h in Headers */,
+				02AD6A2C1CFC28920087BCB4 /* SDCAlertBehaviors.h in Headers */,
+				02AD6A491CFFED7D0087BCB4 /* SDCAlertController.h in Headers */,
 				D2515EDE1BC1A94A00ED606F /* UIView+SDCAutoLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -234,9 +294,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2515ECE1BC1A84D00ED606F /* ActionCell.xib in Resources */,
-				D2DE585A1C08261E0041DFDE /* ActionSheetView.xib in Resources */,
-				D2515ED71BC1A85800ED606F /* TextFieldCell.xib in Resources */,
+				D2515ECE1BC1A84D00ED606F /* SDCActionCell.xib in Resources */,
+				D2DE585A1C08261E0041DFDE /* SDCActionSheetView.xib in Resources */,
+				D2515ED71BC1A85800ED606F /* SDCTextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,25 +307,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D253B1C81C2AC78D00C37E0F /* AlertBehaviors.swift in Sources */,
-				D2515ED51BC1A85200ED606F /* UIViewController+Extension.swift in Sources */,
-				D2515ED21BC1A85200ED606F /* AnimationController.swift in Sources */,
-				D2515ED81BC1A85800ED606F /* TextFieldsViewController.swift in Sources */,
-				D2515ED11BC1A84D00ED606F /* AlertAction.swift in Sources */,
-				D2515ED31BC1A85200ED606F /* PresentationController.swift in Sources */,
-				D23B53771BF473CC00AB5BBE /* ActionSheetView.swift in Sources */,
-				D2515EDA1BC1A85800ED606F /* AlertControllerView.swift in Sources */,
-				D2515ECF1BC1A84D00ED606F /* ActionsCollectionView.swift in Sources */,
-				D23B53751BF473BC00AB5BBE /* AlertView.swift in Sources */,
-				D2DE585B1C082F460041DFDE /* AlertController.swift in Sources */,
-				D2A48B441C2E09CE009DD715 /* AlertController+Convenience.swift in Sources */,
+				02AD6A1D1CFC0A080087BCB4 /* SDCTextFieldsViewController.m in Sources */,
+				02AD6A391CFD60230087BCB4 /* SDCActionSheetView.m in Sources */,
+				02AD6A151CFC01910087BCB4 /* SDCActionsCollectionView.m in Sources */,
+				02AD6A191CFC07E50087BCB4 /* SDCTextFieldCell.m in Sources */,
+				02AD6A331CFC2EF80087BCB4 /* SDCAlertViewClass.m in Sources */,
+				02AD6A421CFD665E0087BCB4 /* SDCAnimationController.m in Sources */,
+				02AD6A211CFC25A90087BCB4 /* SDCAlertLabel.m in Sources */,
+				02AD6A411CFD65F80087BCB4 /* SDCAlertPresentationController.m in Sources */,
+				02AD6A291CFC26E40087BCB4 /* SDCAlertControllerView.m in Sources */,
+				02AD6A2D1CFC28920087BCB4 /* SDCAlertBehaviors.m in Sources */,
 				D2515ECB1BC1A83800ED606F /* UIView+SDCAutoLayout.m in Sources */,
-				D2515ED01BC1A84D00ED606F /* ActionsCollectionViewFlowLayout.swift in Sources */,
-				D2515EDC1BC1A85800ED606F /* AlertVisualStyle.swift in Sources */,
-				D2515ED41BC1A85200ED606F /* Transition.swift in Sources */,
-				D2515EDB1BC1A85800ED606F /* AlertLabel.swift in Sources */,
-				D2515ECD1BC1A84D00ED606F /* ActionCell.swift in Sources */,
-				D2515ED61BC1A85800ED606F /* TextFieldCell.swift in Sources */,
+				02AD6A461CFFEB110087BCB4 /* UIViewController+SDCExtension.m in Sources */,
+				02AD6A001CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m in Sources */,
+				02AD6A4A1CFFED7D0087BCB4 /* SDCAlertController.m in Sources */,
+				022B43231CFBDDBB00B477A7 /* SDCAlertAction.m in Sources */,
+				02AD6A091CFBFD2C0087BCB4 /* SDCActionCell.m in Sources */,
+				02AD6A041CFBEA570087BCB4 /* SDCAlertVisualStyle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
