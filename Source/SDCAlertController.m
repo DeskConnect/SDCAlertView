@@ -210,7 +210,13 @@ NS_ASSUME_NONNULL_BEGIN
         // http://stackoverflow.com/a/19580888/751268
         
         if (!self.didAssignFirstResponder) {
-            [self.textFields.firstObject becomeFirstResponder];
+            UIResponder *textField = self.textFields.firstObject;
+            if (!textField)
+                textField = [[self.contentView.subviews filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(UIView *subview, NSDictionary<NSString *,id> * __nullable bindings) {
+                    return [subview conformsToProtocol:@protocol(UITextInput)];
+                }]] firstObject];
+            
+            [textField becomeFirstResponder];
             self.didAssignFirstResponder = YES;
         }
     }
