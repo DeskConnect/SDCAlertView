@@ -75,13 +75,21 @@
     return elements;
 }
 
+- (CGFloat)bottomPadding {
+    CGFloat padding = self.visualStyle.contentPadding.bottom;
+    if (!self.textFieldsViewController.view && !self.contentView.subviews.count)
+        padding += 8.5f;
+    
+    return padding;
+}
+
 - (CGFloat)contentHeight {
     UIView *lastElement = self.elements.lastObject;
     if (!lastElement)
         return 0;
     
     [lastElement layoutIfNeeded];
-    return (CGRectGetMaxY(lastElement.frame) + self.visualStyle.contentPadding.bottom);
+    return (CGRectGetMaxY(lastElement.frame) + [self bottomPadding]);
 }
 
 - (void)prepareLayout {
@@ -234,7 +242,7 @@
 }
 
 - (void)pinBottomOfScrollViewToView:(UIView *)view withPriority:(UILayoutPriority)priority {
-    NSLayoutConstraint *bottomAnchor = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeBottom multiplier:1.0f constant:-self.visualStyle.contentPadding.bottom];
+    NSLayoutConstraint *bottomAnchor = [NSLayoutConstraint constraintWithItem:view attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.scrollView attribute:NSLayoutAttributeBottom multiplier:1.0f constant:-[self bottomPadding]];
     bottomAnchor.priority = priority;
     [self addConstraint:bottomAnchor];
 }
