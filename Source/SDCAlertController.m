@@ -29,8 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @implementation SDCAlertController
 
 - (void)setTitle:(nullable NSString *)title {
-    if (title)
-        self.attributedTitle = [[NSAttributedString alloc] initWithString:title];
+    self.attributedTitle = (title ? [[NSAttributedString alloc] initWithString:title] : nil);
 }
 
 - (nullable NSString *)title {
@@ -38,8 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)setMessage:(nullable NSString *)message {
-    if (message)
-        self.attributedMessage = [[NSAttributedString alloc] initWithString:message];
+    self.attributedMessage = (message ? [[NSAttributedString alloc] initWithString:message] : nil);
 }
 
 - (nullable NSString *)message {
