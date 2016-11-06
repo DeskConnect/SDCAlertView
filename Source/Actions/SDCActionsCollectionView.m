@@ -93,6 +93,8 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
         self.highlightedCell.highlighted = NO;
         cell.highlighted = YES;
         self.highlightedCell = cell;
+        
+        [[UISelectionFeedbackGenerator new] selectionChanged];
     }
     
     if (sender.state == UIGestureRecognizerStateEnded) {
