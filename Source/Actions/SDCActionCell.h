@@ -12,10 +12,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SDCActionCell : UICollectionViewCell
 
-@property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 
 - (void)setAction:(SDCAlertAction *)action withVisualStyle:(SDCAlertVisualStyle *)visualStyle;
+- (void)createLabel;
+
+@end
+
+@interface SDCCancelSheetCell : SDCActionCell
+
+@property (nonatomic, weak) id target;
+@property (nonatomic, assign, nullable) SEL selector;
 
 @end
 

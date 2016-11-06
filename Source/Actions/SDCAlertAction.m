@@ -26,6 +26,7 @@ NS_ASSUME_NONNULL_BEGIN
         return nil;
     
     _enabled = YES;
+    _preferred = (style == SDCAlertActionStyleCancel);
     _attributedTitle = [attributedTitle copy];
     _style = style;
     _handler = [handler copy];
@@ -45,6 +46,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setActionView:(SDCActionCell *)actionView {
     _actionView = actionView;
     actionView.enabled = self.enabled;
+}
+
+- (Class)cellClass {
+    return (_cellClass ?: [SDCActionCell class]);
 }
 
 @end

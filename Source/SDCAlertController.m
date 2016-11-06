@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface SDCAlertController ()
 
-@property (nonatomic, strong) IBOutlet SDCAlertControllerView *alertView;
+@property (nonatomic, strong) SDCAlertControllerView *alertView;
 @property (nonatomic, strong) SDCAlertControllerTransitioningDelegate *transitionDelegate;
 @property (nonatomic, copy, nullable) NSArray<UITextField *> *textFields;
 @property (nonatomic, assign) BOOL didAssignFirstResponder;
@@ -70,25 +70,20 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (nullable SDCAlertAction *)preferredAction {
-    for (SDCAlertAction *action in self.actions)
-        if (action.style == SDCAlertActionStylePreferred)
-            return action;
-    
-    return nil;
+    return [[self.actions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"preferred = %d", YES]] firstObject];
 }
 
 - (void)setPreferredAction:(nullable SDCAlertAction *)preferredAction {
     NSArray<SDCAlertAction *> *actions = self.actions;
     
+    for (SDCAlertAction *action in actions)
+        action.preferred = NO;
+    
     if (preferredAction) {
-        preferredAction.style = SDCAlertActionStylePreferred;
+        preferredAction.preferred = YES;
         if (![actions indexOfObject:preferredAction])
             self.actions = [actions arrayByAddingObject:preferredAction];
         
-    } else {
-        for (SDCAlertAction *action in actions)
-            if (action.style == SDCAlertActionStylePreferred)
-                action.style = SDCAlertActionStyleDefault;
     }
 }
 
@@ -129,6 +124,11 @@ NS_ASSUME_NONNULL_BEGIN
     _preferredStyle = preferredStyle;
     [self commonInit];
     
+    if (attributedTitle && !attributedMessage) {
+        attributedMessage = attributedTitle;
+        attributedTitle = nil;
+    }
+    
     self.attributedTitle = attributedTitle;
     self.attributedMessage = attributedMessage;
     
@@ -142,6 +142,11 @@ NS_ASSUME_NONNULL_BEGIN
     
     _preferredStyle = preferredStyle;
     [self commonInit];
+    
+    if (title && !message) {
+        message = title;
+        title = nil;
+    }
     
     self.title = title;
     self.message = message;
@@ -159,8 +164,7 @@ NS_ASSUME_NONNULL_BEGIN
     self.transitioningDelegate = self.transitionDelegate = [[SDCAlertControllerTransitioningDelegate alloc] initWithAlertStyle:preferredStyle];
     
     if (preferredStyle == SDCAlertControllerStyleActionSheet) {
-        NSString *nibName = NSStringFromClass([SDCActionSheetView class]);
-        [[NSBundle bundleForClass:[self class]] loadNibNamed:nibName owner:self options:nil];
+        _alertView = [SDCActionSheetView new];
     } else {
         _alertView = [SDCAlertView new];
     }
@@ -180,15 +184,6 @@ NS_ASSUME_NONNULL_BEGIN
     
     NSArray<UITextField *> *textFields = (self.textFields ?: @[]);
     self.textFields = [textFields arrayByAddingObject:textField];
-}
-
-- (void)presentAnimated:(BOOL)animated completion:(nullable void (^)())completion {
-    UIViewController *topViewController = [UIViewController sdc_topViewController];
-    [topViewController presentViewController:self animated:animated completion:completion];
-}
-
-- (void)dismissAnimated:(BOOL)animated completion:(nullable void (^)())completion {
-    [self.presentingViewController dismissViewControllerAnimated:animated completion:completion];
 }
 
 #pragma mark - Override
@@ -263,7 +258,8 @@ NS_ASSUME_NONNULL_BEGIN
         if (weakSelf.shouldDismissHandler && !weakSelf.shouldDismissHandler(action))
             return;
         
-        [weakSelf dismissAnimated:YES completion:^{
+        weakSelf.alertView.actionTappedHandler = nil;
+        [weakSelf dismissViewControllerAnimated:YES completion:^{
             if (action.handler)
                 action.handler(action);
         }];
@@ -280,7 +276,7 @@ NS_ASSUME_NONNULL_BEGIN
             [self.alertView sdc_pinWidth:(width * self.visualStyle.width)];
             [self.alertView sdc_horizontallyCenterInSuperview];
             [self.alertView sdc_alignEdgesWithSuperview:UIRectEdgeBottom insets:margins];
-            [self.alertView sdc_setMaximumHeightToSuperviewHeightWithOffset:-margins.top];
+            [self.alertView sdc_setMaximumHeightToSuperviewHeightWithOffset:(-margins.top + margins.bottom)];
             break;
         }
             
@@ -318,8 +314,13 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 - (void)chromeTapped:(UITapGestureRecognizer *)sender {
-    if (!CGRectContainsPoint(self.alertView.frame, [sender locationInView:self.view]))
-        [self dismissAnimated:YES completion:nil];
+    if (!CGRectContainsPoint(self.alertView.frame, [sender locationInView:self.view])) {
+        [self dismissViewControllerAnimated:YES completion:^{
+            SDCAlertAction *cancelAction = [[self.actions filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"style = %ld", (long)SDCAlertActionStyleCancel]] firstObject];
+            if (cancelAction.handler)
+                cancelAction.handler(cancelAction);
+        }];
+    }
 }
 
 - (void)dealloc {

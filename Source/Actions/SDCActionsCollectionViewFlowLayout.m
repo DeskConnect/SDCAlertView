@@ -62,7 +62,10 @@ NSString * const SDCVerticalActionSeparator = @"vertical";
     if (!itemAttributes)
         return nil;
     
-    attributes.zIndex = itemAttributes.zIndex + 1;
+    if (self.hideFirstSeparator && indexPath.row == 0)
+        attributes.hidden = YES;
+    
+    attributes.zIndex = (itemAttributes.zIndex + 1);
     attributes.backgroundColor = self.visualStyle.actionViewSeparatorColor;
     
     CGRect decorationViewFrame = itemAttributes.frame;

@@ -16,6 +16,7 @@ extern NSString * const SDCVerticalActionSeparator;
 @interface SDCActionsCollectionViewFlowLayout : UICollectionViewFlowLayout
 
 @property (nonatomic, strong, nullable) SDCAlertVisualStyle *visualStyle;
+@property (nonatomic, assign) BOOL hideFirstSeparator;
 
 @end
 
