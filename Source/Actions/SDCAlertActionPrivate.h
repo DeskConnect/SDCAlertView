@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SDCAlertAction ()
 
 @property (nonatomic, strong) SDCActionCell *actionView;
-@property (nonatomic, assign) SDCAlertActionStyle style;
+@property (nonatomic, assign, getter=isPreferred) BOOL preferred;
 
 @end
 

@@ -7,6 +7,7 @@
 //
 
 #import "SDCAlertVisualStyle.h"
+#import "SDCActionsCollectionViewFlowLayout.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) SDCAlertVisualStyle *visualStyle;
 @property (nonatomic, copy, nullable) void (^actionTapped)(SDCAlertAction *action);
 
+@property (nonatomic, strong) SDCActionsCollectionViewFlowLayout *collectionViewLayout;
 @property (nonatomic, readonly) CGFloat displayHeight;
 
 - (void)highlightActionForPanGesture:(UIGestureRecognizer *)sender;

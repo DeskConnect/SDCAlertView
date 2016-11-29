@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		022B43221CFBDDBB00B477A7 /* SDCAlertAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 022B43201CFBDDBB00B477A7 /* SDCAlertAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		022B43231CFBDDBB00B477A7 /* SDCAlertAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 022B43211CFBDDBB00B477A7 /* SDCAlertAction.m */; };
+		0273882E1DCF074300EC8716 /* SDCBackdropBlurView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0273882C1DCF074300EC8716 /* SDCBackdropBlurView.h */; };
+		0273882F1DCF074300EC8716 /* SDCBackdropBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0273882D1DCF074300EC8716 /* SDCBackdropBlurView.m */; };
 		02AD69FF1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */; };
 		02AD6A001CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD69FE1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m */; };
 		02AD6A031CFBEA570087BCB4 /* SDCAlertVisualStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 02AD6A011CFBEA570087BCB4 /* SDCAlertVisualStyle.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,15 +43,15 @@
 		02AD6A4A1CFFED7D0087BCB4 /* SDCAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02AD6A481CFFED7D0087BCB4 /* SDCAlertController.m */; };
 		D2515EC41BC1A7D500ED606F /* SDCAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = D2515EC31BC1A7D500ED606F /* SDCAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D2515ECB1BC1A83800ED606F /* UIView+SDCAutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = D2C30AA71BC19F9300984652 /* UIView+SDCAutoLayout.m */; };
-		D2515ECE1BC1A84D00ED606F /* SDCActionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A711BC120C900984652 /* SDCActionCell.xib */; };
 		D2515ED71BC1A85800ED606F /* SDCTextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2C30A7F1BC120C900984652 /* SDCTextFieldCell.xib */; };
 		D2515EDE1BC1A94A00ED606F /* UIView+SDCAutoLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C30AA61BC19F9300984652 /* UIView+SDCAutoLayout.h */; };
-		D2DE585A1C08261E0041DFDE /* SDCActionSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		022B43201CFBDDBB00B477A7 /* SDCAlertAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCAlertAction.h; sourceTree = "<group>"; };
 		022B43211CFBDDBB00B477A7 /* SDCAlertAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCAlertAction.m; sourceTree = "<group>"; };
+		0273882C1DCF074300EC8716 /* SDCBackdropBlurView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCBackdropBlurView.h; sourceTree = "<group>"; };
+		0273882D1DCF074300EC8716 /* SDCBackdropBlurView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCBackdropBlurView.m; sourceTree = "<group>"; };
 		02A875FC1D03ADA300A7F6A0 /* SDCAlertActionPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDCAlertActionPrivate.h; sourceTree = "<group>"; };
 		02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDCActionsCollectionViewFlowLayout.h; sourceTree = "<group>"; };
 		02AD69FE1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDCActionsCollectionViewFlowLayout.m; sourceTree = "<group>"; };
@@ -84,11 +86,9 @@
 		D2515EC11BC1A7D500ED606F /* SDCAlertView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDCAlertView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2515EC31BC1A7D500ED606F /* SDCAlertView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SDCAlertView.h; sourceTree = "<group>"; };
 		D2515EC51BC1A7D500ED606F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2C30A711BC120C900984652 /* SDCActionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCActionCell.xib; sourceTree = "<group>"; };
 		D2C30A7F1BC120C900984652 /* SDCTextFieldCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCTextFieldCell.xib; sourceTree = "<group>"; };
 		D2C30AA61BC19F9300984652 /* UIView+SDCAutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDCAutoLayout.h"; sourceTree = "<group>"; };
 		D2C30AA71BC19F9300984652 /* UIView+SDCAutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDCAutoLayout.m"; sourceTree = "<group>"; };
-		D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SDCActionSheetView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,7 +105,6 @@
 		D23B53781BF473DA00AB5BBE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D2DE58591C08261E0041DFDE /* SDCActionSheetView.xib */,
 				02AD6A361CFD60230087BCB4 /* SDCActionSheetView.h */,
 				02AD6A371CFD60230087BCB4 /* SDCActionSheetView.m */,
 				02AD6A261CFC26E40087BCB4 /* SDCAlertControllerView.h */,
@@ -114,6 +113,8 @@
 				02AD6A1F1CFC25A90087BCB4 /* SDCAlertLabel.m */,
 				02AD6A2F1CFC2DD00087BCB4 /* SDCAlertViewClass.h */,
 				02AD6A301CFC2DD00087BCB4 /* SDCAlertViewClass.m */,
+				0273882C1DCF074300EC8716 /* SDCBackdropBlurView.h */,
+				0273882D1DCF074300EC8716 /* SDCBackdropBlurView.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,7 +152,6 @@
 			children = (
 				02AD6A061CFBFD2C0087BCB4 /* SDCActionCell.h */,
 				02AD6A071CFBFD2C0087BCB4 /* SDCActionCell.m */,
-				D2C30A711BC120C900984652 /* SDCActionCell.xib */,
 				02AD6A121CFC01910087BCB4 /* SDCActionsCollectionView.h */,
 				02AD6A131CFC01910087BCB4 /* SDCActionsCollectionView.m */,
 				02AD69FD1CFBE9DC0087BCB4 /* SDCActionsCollectionViewFlowLayout.h */,
@@ -215,6 +215,7 @@
 			files = (
 				02AD6A401CFD65F80087BCB4 /* SDCAlertPresentationController.h in Headers */,
 				02AD6A3C1CFD642C0087BCB4 /* SDCAnimationController.h in Headers */,
+				0273882E1DCF074300EC8716 /* SDCBackdropBlurView.h in Headers */,
 				02AD6A381CFD60230087BCB4 /* SDCActionSheetView.h in Headers */,
 				D2515EC41BC1A7D500ED606F /* SDCAlertView.h in Headers */,
 				02AD6A081CFBFD2C0087BCB4 /* SDCActionCell.h in Headers */,
@@ -294,8 +295,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D2515ECE1BC1A84D00ED606F /* SDCActionCell.xib in Resources */,
-				D2DE585A1C08261E0041DFDE /* SDCActionSheetView.xib in Resources */,
 				D2515ED71BC1A85800ED606F /* SDCTextFieldCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -309,6 +308,7 @@
 			files = (
 				02AD6A1D1CFC0A080087BCB4 /* SDCTextFieldsViewController.m in Sources */,
 				02AD6A391CFD60230087BCB4 /* SDCActionSheetView.m in Sources */,
+				0273882F1DCF074300EC8716 /* SDCBackdropBlurView.m in Sources */,
 				02AD6A151CFC01910087BCB4 /* SDCActionsCollectionView.m in Sources */,
 				02AD6A191CFC07E50087BCB4 /* SDCTextFieldCell.m in Sources */,
 				02AD6A331CFC2EF80087BCB4 /* SDCAlertViewClass.m in Sources */,

@@ -24,13 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong, null_unspecified) SDCAlertVisualStyle *visualStyle;
 @property (nonatomic, readonly) UIView *contentView;
 @property (nonatomic, readonly) UIView *topView;
-@property (nonatomic, strong, null_unspecified) IBOutlet SDCAlertLabel *titleLabel;
-@property (nonatomic, strong, null_unspecified) IBOutlet SDCAlertLabel *messageLabel;
-@property (nonatomic, strong, null_unspecified) IBOutlet SDCActionsCollectionView *actionsCollectionView;
+@property (nonatomic, strong, null_unspecified) SDCAlertLabel *titleLabel;
+@property (nonatomic, strong, null_unspecified) SDCAlertLabel *messageLabel;
+@property (nonatomic, strong, null_unspecified) SDCActionsCollectionView *actionsCollectionView;
 
 - (void)addBehaviors:(SDCAlertBehaviors)behaviors;
 - (void)prepareLayout;
 - (void)highlightActionForPanGesture:(UIPanGestureRecognizer *)sender;
+- (UIView *)createBackdropView;
 
 @end
 

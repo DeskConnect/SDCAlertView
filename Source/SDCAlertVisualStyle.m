@@ -7,6 +7,7 @@
 //
 
 #import "SDCAlertVisualStyle.h"
+#import "SDCAlertActionPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -40,29 +41,27 @@ NS_ASSUME_NONNULL_BEGIN
     switch (alertStyle) {
         case SDCAlertControllerStyleAlert:
             self.width = 270;
+            self.actionViewSize = CGSizeMake(90, 44);
             
             if (isiOS9) {
                 self.cornerRadius = 13;
                 self.margins = UIEdgeInsetsMake(10, 0, 10, 0);
-                self.actionViewSize = CGSizeMake(90, 44);
             } else {
                 self.cornerRadius = 7;
                 self.margins = UIEdgeInsetsZero;
-                self.actionViewSize = CGSizeMake(90, 44);
             }
             
             break;
             
         case SDCAlertControllerStyleActionSheet:
             self.width = 1;
+            self.margins = UIEdgeInsetsMake(30, 10, -10, 10);
             
             if (isiOS9) {
                 self.cornerRadius = 13;
-                self.margins = UIEdgeInsetsMake(30, 10, -10, 10);
                 self.actionViewSize = CGSizeMake(90, 57);
             } else {
                 self.cornerRadius = 4;
-                self.margins = UIEdgeInsetsMake(10, 10, -8, 10);
                 self.actionViewSize = CGSizeMake(90, 44);
             }
             
@@ -79,12 +78,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIFont *)fontForAction:(nullable SDCAlertAction *)action {
     switch (self.alertStyle) {
         case SDCAlertControllerStyleAlert:
-            if (action.style == SDCAlertActionStylePreferred)
+            if (action.preferred)
                 return self.alertPreferredFont;
             else
                 return self.alertNormalFont;
         case SDCAlertControllerStyleActionSheet:
-            if (action.style == SDCAlertActionStylePreferred)
+            if (action.style == SDCAlertActionStyleCancel)
                 return self.actionSheetPreferredFont;
             else
                 return self.actionSheetNormalFont;

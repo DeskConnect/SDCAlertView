@@ -9,10 +9,9 @@
 #import "SDCActionsCollectionView.h"
 #import "SDCActionsCollectionViewFlowLayout.h"
 #import "SDCActionCell.h"
+#import "SDCAlertActionPrivate.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-static NSString * const SDCActionCellIdentifier = @"actionCell";
 
 @interface SDCActionsCollectionView () <UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -21,6 +20,8 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
 @end
 
 @implementation SDCActionsCollectionView
+
+@dynamic collectionViewLayout;
 
 - (instancetype)init {
     self = [super initWithFrame:CGRectZero collectionViewLayout:[SDCActionsCollectionViewFlowLayout new]];
@@ -36,10 +37,6 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
     [self.collectionViewLayout registerClass:[SDCActionSeparatorView class] forDecorationViewOfKind:SDCHorizontalActionSeparator];
     [self.collectionViewLayout registerClass:[SDCActionSeparatorView class] forDecorationViewOfKind:SDCVerticalActionSeparator];
     
-    NSString *nibName = NSStringFromClass([SDCActionCell class]);
-    UINib *nib = [UINib nibWithNibName:nibName bundle:[NSBundle bundleForClass:[self class]]];
-    [self registerNib:nib forCellWithReuseIdentifier:SDCActionCellIdentifier];
-    
     return self;
 }
 
@@ -49,6 +46,17 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
 
 - (nullable instancetype)initWithCoder:(NSCoder *)aDecoder {
     return [self init];
+}
+
+- (void)setActions:(NSArray<SDCAlertAction *> *)actions {
+    _actions = [actions copy];
+    
+    NSMutableSet<Class> *cellClasses = [NSMutableSet new];
+    for (SDCAlertAction *action in actions)
+        [cellClasses addObject:action.cellClass];
+    
+    for (Class cellClass in cellClasses)
+        [self registerClass:cellClass forCellWithReuseIdentifier:NSStringFromClass(cellClass)];
 }
 
 - (void)setVisualStyle:(SDCAlertVisualStyle *)visualStyle {
@@ -66,8 +74,22 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
     
     if (layout.scrollDirection == UICollectionViewScrollDirectionHorizontal)
         return visualStyle.actionViewSize.height;
-    else
-        return (visualStyle.actionViewSize.height * (CGFloat)[self numberOfItemsInSection:0]);
+    
+    CGFloat height = 0;
+    for (NSInteger i = 0; i < [self numberOfItemsInSection:0]; i++)
+        height += [self heightAtIndex:i];
+    
+    return height;
+}
+
+- (CGFloat)heightAtIndex:(NSInteger)actionIndex {
+    SDCAlertAction *action = [self.actions objectAtIndex:actionIndex];
+    CGFloat height = self.visualStyle.actionViewSize.height;
+    // Size custom cells on iOS 8 the same as regular cells on iOS 9
+    if (action.cellClass != [SDCActionCell class] && self.visualStyle.alertStyle == SDCAlertControllerStyleActionSheet)
+        height = 57.0f;
+    
+    return height;
 }
 
 - (void)highlightActionForPanGesture:(UIGestureRecognizer *)sender {
@@ -110,8 +132,9 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SDCActionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:SDCActionCellIdentifier forIndexPath:indexPath];
-    [cell setAction:self.actions[indexPath.item] withVisualStyle:self.visualStyle];
+    SDCAlertAction *action = [self.actions objectAtIndex:indexPath.item];
+    SDCActionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass(action.cellClass) forIndexPath:indexPath];
+    [cell setAction:action withVisualStyle:self.visualStyle];
     
     return cell;
 }
@@ -119,12 +142,11 @@ static NSString * const SDCActionCellIdentifier = @"actionCell";
 #pragma mark - UICollectionViewDelegateFlowLayout
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
-    CGFloat actionWidth = self.visualStyle.actionViewSize.width;
-    CGFloat actionHeight = self.visualStyle.actionViewSize.height;
+    CGFloat actionHeight = [self heightAtIndex:indexPath.item];
     
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *)self.collectionViewLayout;
     if (layout.scrollDirection == UICollectionViewScrollDirectionHorizontal) {
-        CGFloat width = MAX(self.bounds.size.width / (CGFloat)[self numberOfItemsInSection:0], actionWidth);
+        CGFloat width = MAX(self.bounds.size.width / (CGFloat)[self numberOfItemsInSection:0], self.visualStyle.actionViewSize.width);
         return CGSizeMake(width, actionHeight);
     } else {
         return CGSizeMake(self.bounds.size.width, actionHeight);

@@ -14,12 +14,12 @@ NS_ASSUME_NONNULL_BEGIN
  The action's style
  
  - Default:     The action will have default font and text color
- - Preferred:   The action will take a style that indicates it's the preferred option
+ - Cancel:      The action will take a style that indicates it's the preferred option
  - Destructive: The action will convey that this action will do something destructive
  */
 typedef NS_ENUM(NSInteger, SDCAlertActionStyle) {
     SDCAlertActionStyleDefault = 0,
-    SDCAlertActionStylePreferred = 1,
+    SDCAlertActionStyleCancel = 1,
     SDCAlertActionStyleDestructive = 2,
 };
 
@@ -50,6 +50,9 @@ typedef NS_ENUM(NSInteger, SDCAlertActionStyle) {
 
 /// Whether this action can be interacted with by the user.
 @property (nonatomic) BOOL enabled;
+
+/// A custom class to be used to display this action (a subclass of SDCActionCell)
+@property (nonatomic, strong, null_resettable) Class cellClass;
 
 @end
 

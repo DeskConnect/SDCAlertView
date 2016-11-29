@@ -89,6 +89,8 @@ typedef NS_ENUM(NSInteger, SDCActionLayout) {
 
 - (instancetype)initWithAlertStyle:(SDCAlertControllerStyle)alertStyle NS_DESIGNATED_INITIALIZER;
 
+@property (nonatomic, readonly) SDCAlertControllerStyle alertStyle;
+
 /**
  The text color for a given action.
  

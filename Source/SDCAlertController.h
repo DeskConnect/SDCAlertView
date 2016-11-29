@@ -30,7 +30,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// The alert's actions (buttons).
 @property (nonatomic, readonly, copy) NSArray<SDCAlertAction *> *actions;
 
-/// The alert's preferred action, if one is set. Setting this value to an action that wasn't already added to the array will add it and override its style to .Preferred. Setting this value to nil will remove the preferred style from all actions.
+/// The alert's preferred action, if one is set. Setting this value to nil will remove the preferred style from all actions.
 @property (nonatomic, strong, nullable) SDCAlertAction *preferredAction;
 
 /// The layout of the actions in the alert.
@@ -87,22 +87,6 @@ NS_ASSUME_NONNULL_BEGIN
  is provided as a parameter to the closure
  */
 - (void)addTextFieldWithConfigurationHandler:(nullable void (^)(UITextField *))configurationHandler;
-
-/**
- Presents the alert.
- 
- - parameter animated:   Whether to present the alert in an animated fashion
- - parameter completion: An optional closure that's called when the presentation finishes
- */
-- (void)presentAnimated:(BOOL)animated completion:(nullable void (^)())completion;
-
-/**
- Dismisses the alert.
- 
- - parameter animated:   Whether to dismiss the alert in an animated fashion
- - parameter completion: An optional closure that's called when the presentation finishes
- */
-- (void)dismissAnimated:(BOOL)animated completion:(nullable void (^)())completion;
 
 @end
 

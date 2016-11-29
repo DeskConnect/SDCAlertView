@@ -113,7 +113,7 @@
     if (color) {
         self.backgroundColor = color;
     } else {
-        UIVisualEffectView *backgroundView = [[UIVisualEffectView alloc] initWithEffect:[UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight]];
+        UIView *backgroundView = [self createBackdropView];
         backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
         
         [self insertSubview:backgroundView belowSubview:self.scrollView];

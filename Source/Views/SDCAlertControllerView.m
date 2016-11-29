@@ -7,6 +7,11 @@
 //
 
 #import "SDCAlertControllerView.h"
+#import "SDCBackdropBlurView.h"
+
+@interface SDCAlertControllerView () <UIGestureRecognizerDelegate>
+
+@end
 
 @implementation SDCAlertControllerView
 
@@ -90,6 +95,7 @@
 - (void)addBehaviors:(SDCAlertBehaviors)behaviors {
     if ((behaviors & SDCAlertBehaviorDragTap) == SDCAlertBehaviorDragTap) {
         UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(highlightActionForPanGesture:)];
+        panGesture.delegate = self;
         panGesture.cancelsTouchesInView = NO;
         [self addGestureRecognizer:panGesture];
     }
@@ -113,6 +119,27 @@
     UIMotionEffectGroup *group = [UIMotionEffectGroup new];
     group.motionEffects = @[horizontal, vertical];
     [self addMotionEffect:group];
+}
+
+- (UIView *)createBackdropView {
+    UIViewController *viewController = (UIViewController *)self;
+    while (viewController && ![viewController isKindOfClass:[UIViewController class]])
+        viewController = (UIViewController *)[viewController nextResponder];
+    
+    if (!viewController)
+        @throw [NSException exceptionWithName:NSInternalInconsistencyException reason:@"SDCAlertControllerView is not in the responder chain" userInfo:nil];
+    
+    return SDCCreateBackdropBlurView(viewController);
+}
+
+#pragma mark - UIGestureRecognizerDelegate
+
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldRequireFailureOfGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    UICollectionView *actionsCollectionView = self.actionsCollectionView;
+    if (otherGestureRecognizer == actionsCollectionView.panGestureRecognizer && actionsCollectionView.contentSize.height > actionsCollectionView.frame.size.height)
+        return YES;
+    
+    return NO;
 }
 
 @end
