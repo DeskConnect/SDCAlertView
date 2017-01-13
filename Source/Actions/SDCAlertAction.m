@@ -43,9 +43,15 @@ NS_ASSUME_NONNULL_BEGIN
     self.actionView.enabled = enabled;
 }
 
+- (void)setSelected:(BOOL)selected {
+    _selected = selected;
+    self.actionView.selected = selected;
+}
+
 - (void)setActionView:(SDCActionCell *)actionView {
     _actionView = actionView;
     actionView.enabled = self.enabled;
+    actionView.selected = self.selected;
 }
 
 - (Class)cellClass {

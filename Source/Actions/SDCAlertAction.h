@@ -51,6 +51,9 @@ typedef NS_ENUM(NSInteger, SDCAlertActionStyle) {
 /// Whether this action can be interacted with by the user.
 @property (nonatomic) BOOL enabled;
 
+/// Whether this action is selected.
+@property (nonatomic) BOOL selected;
+
 /// A custom class to be used to display this action (a subclass of SDCActionCell)
 @property (nonatomic, strong, null_resettable) Class cellClass;
 

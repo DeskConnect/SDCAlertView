@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIView *highlightedBackgroundView;
 @property (nonatomic, strong, nullable) UIColor *textColor;
+@property (nonatomic, strong) UIView *checkmarkView;
+@property (nonatomic, strong) UIView *titleView;
 
 @end
 
@@ -52,28 +54,72 @@ NS_ASSUME_NONNULL_BEGIN
     NSDictionary *views = NSDictionaryOfVariableBindings(_highlightedBackgroundView);
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[_highlightedBackgroundView]|" options:0 metrics:nil views:views]];
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[_highlightedBackgroundView]|" options:0 metrics:nil views:views]];
-    
-    [self createLabel];
+
+    UIView *titleView = self.titleView;
+    titleView.translatesAutoresizingMaskIntoConstraints = NO;
+    titleView.userInteractionEnabled = NO;
+    [self.contentView addSubview:titleView];
+
+    [NSLayoutConstraint activateConstraints:@[
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeLeadingMargin multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0],
+    ]];
 }
 
-- (void)createLabel {
-    _titleLabel = [UILabel new];
-    _titleLabel.font = [UIFont systemFontOfSize:17.0f];
-    _titleLabel.numberOfLines = 1;
-    _titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
-    _titleLabel.adjustsFontSizeToFitWidth = YES;
-    _titleLabel.minimumScaleFactor = 0.75;
-    _titleLabel.textAlignment = NSTextAlignmentCenter;
-    _titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.contentView addSubview:_titleLabel];
-    
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0f constant:0.0f]];
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0f constant:0.0f]];
+- (UIView *)titleView {
+    if (!_titleView) {
+        if ([self customView]) {
+            _titleView = [self customView];
+        } else {
+            UILabel *label = [UILabel new];
+            label.font = [UIFont systemFontOfSize:17.0f];
+            label.numberOfLines = 1;
+            label.lineBreakMode = NSLineBreakByTruncatingTail;
+            label.adjustsFontSizeToFitWidth = YES;
+            label.minimumScaleFactor = 0.75;
+            label.textAlignment = NSTextAlignmentCenter;
+            self.titleLabel = label;
+            _titleView = label;
+        }
+    }
+    return _titleView;
+}
+
+- (UIView *)customView {
+    return nil;
+}
+
+- (UIView *)checkmarkView {
+    if (!_checkmarkView) {
+        UIImageView *checkmarkView = [[UIImageView alloc] init];
+        checkmarkView.image = [UIImage imageNamed:@"checkmark" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
+        checkmarkView.translatesAutoresizingMaskIntoConstraints = NO;
+        _checkmarkView = checkmarkView;
+    }
+    return _checkmarkView;
 }
 
 - (void)setEnabled:(BOOL)enabled {
     _enabled = enabled;
     self.titleLabel.enabled = self.enabled;
+}
+
+- (void)setSelected:(BOOL)selected {
+    [super setSelected:selected];
+    if (selected) {
+        [self.contentView addSubview:self.checkmarkView];
+        [NSLayoutConstraint activateConstraints:@[
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.titleView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0],
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:0.0],
+        ]];
+    } else {
+        [self.checkmarkView removeFromSuperview];
+    }
 }
 
 - (void)setHighlighted:(BOOL)highlighted {
