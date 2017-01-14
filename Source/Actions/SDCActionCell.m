@@ -72,8 +72,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (UIView *)titleView {
     if (!_titleView) {
-        if ([self customView]) {
-            _titleView = [self customView];
+        UIView *customView = [self customView];
+        if (customView) {
+            _titleView = customView;
         } else {
             UILabel *label = [UILabel new];
             label.font = [UIFont systemFontOfSize:17.0f];
