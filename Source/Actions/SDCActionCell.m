@@ -86,10 +86,11 @@ NS_ASSUME_NONNULL_BEGIN
             _titleView = label;
         }
     }
+    
     return _titleView;
 }
 
-- (UIView *)customView {
+- (nullable UIView *)customView {
     return nil;
 }
 
@@ -100,6 +101,7 @@ NS_ASSUME_NONNULL_BEGIN
         checkmarkView.translatesAutoresizingMaskIntoConstraints = NO;
         _checkmarkView = checkmarkView;
     }
+    
     return _checkmarkView;
 }
 

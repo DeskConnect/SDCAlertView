@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, getter=isEnabled) BOOL enabled;
 
 - (void)setAction:(SDCAlertAction *)action withVisualStyle:(SDCAlertVisualStyle *)visualStyle;
-- (UIView *)customView;
+- (nullable UIView *)customView;
 
 @end
 
