@@ -110,9 +110,9 @@ NS_ASSUME_NONNULL_BEGIN
     self.titleLabel.enabled = self.enabled;
 }
 
-- (void)setSelected:(BOOL)selected {
-    [super setSelected:selected];
-    if (selected) {
+- (void)setShowsCheckmark:(BOOL)showsCheckmark {
+    _showsCheckmark = showsCheckmark;
+    if (showsCheckmark) {
         [self.contentView addSubview:self.checkmarkView];
         [NSLayoutConstraint activateConstraints:@[
             [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],

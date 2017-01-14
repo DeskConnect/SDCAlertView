@@ -45,13 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setSelected:(BOOL)selected {
     _selected = selected;
-    self.actionView.selected = selected;
+    self.actionView.showsCheckmark = selected;
 }
 
 - (void)setActionView:(SDCActionCell *)actionView {
     _actionView = actionView;
     actionView.enabled = self.enabled;
-    actionView.selected = self.selected;
+    actionView.showsCheckmark = self.selected;
 }
 
 - (Class)cellClass {

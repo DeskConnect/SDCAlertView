@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UILabel *titleLabel;
 @property (nonatomic, getter=isEnabled) BOOL enabled;
+@property (nonatomic, assign) BOOL showsCheckmark;
 
 - (void)setAction:(SDCAlertAction *)action withVisualStyle:(SDCAlertVisualStyle *)visualStyle;
 - (nullable UIView *)customView;
