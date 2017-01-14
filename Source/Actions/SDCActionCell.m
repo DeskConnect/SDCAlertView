@@ -117,8 +117,8 @@ NS_ASSUME_NONNULL_BEGIN
         [self.contentView addSubview:self.checkmarkView];
         [NSLayoutConstraint activateConstraints:@[
             [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],
-            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.titleView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0],
-            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:0.0],
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.titleView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0],
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:-8.0],
         ]];
     } else {
         [self.checkmarkView removeFromSuperview];
