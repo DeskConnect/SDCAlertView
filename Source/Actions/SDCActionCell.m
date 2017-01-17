@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) UIView *checkmarkView;
 @property (nonatomic, strong) UIView *titleView;
 
+@property (nonatomic, strong) NSLayoutConstraint *titleViewLeadingConstraint;
+@property (nonatomic, strong) NSLayoutConstraint *titleViewTrailingConstraintWithoutCheckmark;
+
 @end
 
 @implementation SDCActionCell
@@ -60,13 +63,14 @@ NS_ASSUME_NONNULL_BEGIN
     titleView.userInteractionEnabled = NO;
     [self.contentView addSubview:titleView];
 
+    self.titleViewLeadingConstraint = [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0];
+    self.titleViewTrailingConstraintWithoutCheckmark = [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0];
+    
     [NSLayoutConstraint activateConstraints:@[
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0.0],
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeLeading multiplier:1.0 constant:0.0],
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:0.0],
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0],
-        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationLessThanOrEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0],
+        self.titleViewLeadingConstraint,
+        self.titleViewTrailingConstraintWithoutCheckmark,
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTop multiplier:1.0 constant:0.0],
+        [NSLayoutConstraint constraintWithItem:titleView attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeBottom multiplier:1.0 constant:0.0],
     ]];
 }
 
@@ -100,6 +104,8 @@ NS_ASSUME_NONNULL_BEGIN
         UIImageView *checkmarkView = [[UIImageView alloc] init];
         checkmarkView.image = [UIImage imageNamed:@"checkmark" inBundle:[NSBundle bundleForClass:[self class]] compatibleWithTraitCollection:nil];
         checkmarkView.translatesAutoresizingMaskIntoConstraints = NO;
+        [checkmarkView setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+        [checkmarkView setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
         _checkmarkView = checkmarkView;
     }
     
@@ -115,13 +121,20 @@ NS_ASSUME_NONNULL_BEGIN
     _showsCheckmark = showsCheckmark;
     if (showsCheckmark) {
         [self.contentView addSubview:self.checkmarkView];
+        self.titleViewTrailingConstraintWithoutCheckmark.active = NO;
+        
+        if ([self.titleView isKindOfClass:[UILabel class]])
+            self.titleViewLeadingConstraint.constant = 37;
+        
         [NSLayoutConstraint activateConstraints:@[
             [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeCenterY multiplier:1.0 constant:0.0],
-            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationGreaterThanOrEqual toItem:self.titleView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0],
+            [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:self.titleView attribute:NSLayoutAttributeTrailing multiplier:1.0 constant:8.0],
             [NSLayoutConstraint constraintWithItem:self.checkmarkView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:self.contentView attribute:NSLayoutAttributeTrailingMargin multiplier:1.0 constant:-8.0],
         ]];
     } else {
         [self.checkmarkView removeFromSuperview];
+        self.titleViewLeadingConstraint.constant = 0;
+        self.titleViewTrailingConstraintWithoutCheckmark.active = YES;
     }
 }
 
